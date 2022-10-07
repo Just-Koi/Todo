@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <!-- 
+        TODO:
+        ADD CATEGORY BUTTON
+        Select category while adding the task to do
+    -->
+
+    <!-- navigation - start -->
+    <nav class="navbar">
+
+        <!-- desktop - start -->
+        <div class="nav-links">
+            <ul>
+                <li><button class="nav-link active" id="dashboard"><i class="fab fa-buromobelexperte"></i>Dashboard</button></li>
+                <li><button class="nav-link" id="ambient"><i class="fab fa-soundcloud"></i>Ambient sounds</button></li>
+                <li><button class="nav-link" id="music"><i class="fas fa-music"></i>Music</button></li>
+            </ul>
+        </div>
+
+        <div class="media-controls-wrapper">
+            <div class="media-controls">
+                <div class="media-controls-item previous"> <i class="fas fa-caret-left"></i> </div>
+                <div class="media-controls-item pause">    <i class="fas fa-pause"></i> </div>
+                <div class="media-controls-item next">     <i class="fas fa-caret-right"></i> </div>
+            </div>
+        </div>
+        <!-- desktop - end -->
+
+    </nav>
+    <!-- navigation - end -->
+
+    <!-- main - start -->
+    <main class="container-fluid">
+
+        <!-- desktop - start -->
+        <sidebar class="left-sidebar">
+            <div class="wrapper">
+                <h1>~ Categories:</h1>
+                <ul>
+                    <%
+                    // for loop
+                    %>
+                </ul>
+            </div>
+        </sidebar>
+        <article class="todo">
+            <div class="todo-inner">
+                <div class="header">
+                    <h3>TODO</h3>
+                    <h1><%= welcome %></h1>
+                </div>
+                <ul class="content">
+                    <%
+                    // todo
+                    %>
+
+                    <li class="category" id="categoryName">
+
+                        <div class="header">
+                            <div class="title">
+                                <h3>Category name:</h3>
+                            </div>
+                            <div class="buttons">
+                                <button class="check-all" id="checkAll"><div class="icon-wrapper"><i class="fas fa-check-double"></i></div> Check all</button>
+                                <button class="delete-all" id="deleteAll"><div class="icon-wrapper"><i class="fas fa-bars-staggered"></i></div> Delete all</button>
+                            </div>
+                        </div>
+                        
+                        <div class="wrapper">
+
+                            <div class="task" id="taskCategoryName">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="icon-wrapper">
+                                            <i class="fas fa-laptop-code" id="categoryIcon"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-wrapper">
+                                            <h4 id="taskTitleCategoryName">
+                                                Example
+                                            </h4>
+                                            <p id="taskTitleDescriptionCategoryName">
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, doloribus eligendi recusandae ea quam accusamus similique vitae maiores neque. Nam, aut. Itaque voluptas, iste quaerat harum aliquam perferendis consequatur commodi.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="buttons">
+                                            <button class="bento-menu">
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><i class="" id="deleteTaksNameCategoryName"></i>    Delete this task    </li>
+                                                <li><i class="" id="pinTaksNameCategoryName"></i>       Pin to top this task</li>
+                                                <li><i class="" id="checkTaksNameCategoryName"></i>     Check this task     </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="task" id="taskCategoryName">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="icon-wrapper">
+                                            <i class="fas fa-laptop-code" id="categoryIcon"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-wrapper">
+                                            <h4 id="taskTitleCategoryName">
+                                                Example
+                                            </h4>
+                                            <p id="taskTitleDescriptionCategoryName">
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, doloribus eligendi recusandae ea quam accusamus similique vitae maiores neque. Nam, aut. Itaque voluptas, iste quaerat harum aliquam perferendis consequatur commodi.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="buttons">
+                                            <button class="bento-menu">
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><i class="" id="deleteTaksNameCategoryName"></i>    Delete this task    </li>
+                                                <li><i class="" id="pinTaksNameCategoryName"></i>       Pin to top this task</li>
+                                                <li><i class="" id="checkTaksNameCategoryName"></i>     Check this task     </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="task" id="taskCategoryName">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="icon-wrapper">
+                                            <i class="fas fa-laptop-code" id="categoryIcon"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-wrapper">
+                                            <h4 id="taskTitleCategoryName">
+                                                Example
+                                            </h4>
+                                            <p id="taskTitleDescriptionCategoryName">
+                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, doloribus eligendi recusandae ea quam accusamus similique vitae maiores neque. Nam, aut. Itaque voluptas, iste quaerat harum aliquam perferendis consequatur commodi.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="buttons">
+                                            <button class="bento-menu">
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><i class="" id="deleteTaksNameCategoryName"></i>    Delete this task    </li>
+                                                <li><i class="" id="pinTaksNameCategoryName"></i>       Pin to top this task</li>
+                                                <li><i class="" id="checkTaksNameCategoryName"></i>     Check this task     </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                    </li>
+
+                </div>
+            </div>
+            <div class="float-button">
+                <i class="fas fa-plus"></i>
+            </div>  
+        </article>
+        <sidebar class="right-sidebar">
+            <div class="wrapper">
+                <%
+                // playing song
+                %>
+            </div>
+        </sidebar>
+        <!-- desktop - end -->
+
+        <!-- add task - start -->
+        <div id="taskScreen">
+            <div class="content">
+                <div class="inner">
+                    <div class="header">
+                        <h1>Add task</h1>
+                        <p>~ Keep calm & git push</p>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" name="task" id="task" placeholder="Type your next TODO thing ...">
+                    </div>
+                    <button type="submit">
+                        Make your day more productivity!
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- add task - end -->
+
+    </main>
+    <!-- main - end -->
+
+    <!-- foot - start -->
+    <footer>
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col me">
+                    <div class="img-wrapper"><img src="/images/me.jpg" alt="me" draggable="false"></div>
+                    <div class="text-wrapper">
+                        <h1>Koi</h1>
+                        <h3>~ Kacper Marciniak</h3>
+                    </div>
+                </div>
+
+                <div class="col links">
+                    <h1>
+                        ~ Links:
+                    </h1>
+                    <ul>
+                        <li><button class="foot-link active" id="dashboard"><i class="fab fa-buromobelexperte"></i>Dashboard</button></li>
+                        <li><button class="foot-link" id="ambient"><i class="fab fa-soundcloud"></i>Ambient sounds</button></li>
+                        <li><button class="foot-link" id="music"><i class="fas fa-music"></i>Music</button></li>
+                    </ul>
+                </div>
+
+                <div class="col social-media">
+                    <h1>
+                        ~ My social:
+                    </h1>
+                    <ul>
+                        <li><a href="http://" target="_blank"><i class="fab fa-facebook-square"></i>facebook</a></li>
+                        <li><a href="http://" target="_blank"><i class="fab fa-github-square"></i>GitHub</a></li>
+                        <li><a href="http://" target="_blank"><i class="fas fa-laptop-code"></i>Coming Soon <br>~ my portfolio website</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+    <!-- foot - end -->
+
+</body>
+</html>
