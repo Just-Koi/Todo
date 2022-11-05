@@ -84,14 +84,16 @@
                         <h1>Add category</h1>
                         <p>~ Keep calm & git push</p>
                     </div>
-                    <div class="input-group">
-                        <input type="text" name="newCategoryName" id="newCategoryName" placeholder="Type your category name..">
-                        <textarea name="newCategoryDescription" id="newCategoryDescription" cols="30" rows="10"></textarea>
-                    </div>
-                    <button type="submit">
-                        Make your day more productive!
-                    </button>
-                    <h3 class="cancel">
+                    <form action="/add-category" method="post">
+                        <div class="input-group">
+                            <input type="text" name="newCategoryName" id="newCategoryName" placeholder="Type your category name..">
+                            <textarea placeholder="Category description (optional).." name="newCategoryDescription" id="newCategoryDescription" cols="30" rows="10"></textarea>
+                        </div>
+                        <button type="submit">
+                            Make your day more productive!
+                        </button>
+                    </form>
+                    <h3 class="cancel" id="closeCategoryScreen">
                         Cancel
                     </h3>
                 </div>
@@ -264,6 +266,11 @@
         </div>
     </footer>
     <!-- foot - end -->
+
+    <!-- scripts - start -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="/scripts/index.js"></script>
+    <!-- scripts - end -->
 
 </body>
 </html>

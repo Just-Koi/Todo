@@ -535,7 +535,7 @@ main #taskScreen .content .inner button:hover {
   background: #07467E;
 }
 main #categoryScreen {
-  transform: scale(1);
+  transform: scale(0);
   position: absolute;
   top: 0;
   left: 0;
@@ -596,7 +596,7 @@ main #categoryScreen .content .inner .input-group textarea {
   padding: 10px;
   font-size: 1.1em;
   width: 100%;
-  background: rgba(217, 231, 230, 0.25);
+  background: rgba(217, 231, 230, 0.15);
   border: 2px solid rgba(7, 70, 126, 0.05);
   border-radius: 5px;
   color: #D9E7E6;
@@ -632,6 +632,10 @@ main #categoryScreen .content .inner .cancel {
   color: #07467E;
   text-decoration: underline;
   cursor: pointer;
+  transition: 0.25s ease;
+}
+main #categoryScreen .content .inner .cancel:hover {
+  color: rgba(7, 70, 126, 0.5);
 }
 
 footer {

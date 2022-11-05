@@ -678,7 +678,7 @@ main{
     }
 
     #categoryScreen{
-        transform: scale(1);
+        transform: scale(0);
         position: absolute;
         top: 0;
         left: 0;
@@ -743,7 +743,7 @@ main{
                         padding: 10px;
                         font-size: 1.1em;
                         width: 100%;
-                        background: rgba($color: $textColor, $alpha: 0.25);
+                        background: rgba($color: $textColor, $alpha: 0.15);
                         border: 2px solid rgba($color: $lighter, $alpha: 0.05);
                         border-radius: 5px;
                         color: $textColor;
@@ -788,6 +788,12 @@ main{
                     color: $lighter;
                     text-decoration: underline;
                     cursor: pointer;
+                    transition: .25s ease;
+
+                    &:hover{
+                        color: rgba($color: $lighter, $alpha: 0.5);
+                    }
+                    
                 }
 
             }

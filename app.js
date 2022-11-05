@@ -29,26 +29,31 @@ app.get("/", function (req, res) {
 
     //Categories
     let categories = [];
+    app.post("/add-category", function(req, res){
 
-    for (let i = 0; i < categories.length; i++){
-        var category = req.body.category + i;
-    }
-    categories.push(category);
+        let newCatName = req.body.newCategoryName;
+        let newCatDescription = req.body.newCategoryDescription;
 
-    /*
-    let categoryItem = {
-        name: doAddCategoryTitle,
-        content: doAddCategoryContentDescription
-    }
-    categories.push(categoryItem);
-    */
+        let categoryItem = {
+            name: newCatName,
+            content: newCatDescription
+        }
 
+        console.log(categoryItem);
+        categories.push(categoryItem);
+
+        res.redirect("/todo.app");
+    });
     console.log(categories);
 
+    res.redirect('/todo.app');
+
     // render    
-    res.render("todo",{
-        categories: categories,
-        welcome: welcome
+    app.get("/todo.app", function(req, res){
+        res.render("todo",{
+            categories: categories,
+            welcome: welcome
+        });
     });
 
 });
