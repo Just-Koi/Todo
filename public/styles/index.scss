@@ -27,6 +27,10 @@ ul{
     padding: 0;
 }
 
+.d-none{
+    display: none;
+}
+
 body{
     padding: 0;
     margin: 0;
@@ -431,14 +435,61 @@ main{
                                         }
 
                                         .dropdown-menu{
-                                            display: block;
                                             position: absolute;
-                                            top: -50px;
-                                            right: 50p;
-                                            width: 300px;
-                                            height: 300px;
-                                            background: $textColor;
+                                            top: -5px;
+                                            right: 60px;
+                                            width: 250px;
+                                            height: 75px;
+                                            background: rgba($color: $textColor, $alpha: 0.5);
+                                            backdrop-filter: blur(10px);
                                             border-radius: 10px;
+                                            box-shadow: 0px 2px 10px rgba($color: $lighter, $alpha: 0.5);
+                                            //display: flex;
+                                            display: none;
+                                            justify-content: space-between;
+                                            align-items: center;
+                                            
+                                            li{
+                                                display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+                                                flex-direction: column;
+                                                text-align: center;
+                                                position: relative;
+                                                top: -5px;
+
+                                                label{
+                                                    display: flex;
+                                                    justify-content: center;
+                                                    align-items: center;
+                                                    flex-direction: column;
+                                                    margin: .5rem 0;
+                                                    cursor: pointer;
+
+                                                    i{
+                                                        font-size: 1.2em;
+                                                        height: 40px;
+                                                        width: 40px;
+                                                        border-radius: 50% 50%;
+                                                        background: $textColor;
+                                                        color: $lighter;
+                                                        box-shadow: 0px 2px 10px rgba($color: $lighter, $alpha: 0.5);
+                                                        display: flex;
+                                                        justify-content: center;
+                                                        align-items: center;
+                                                        transition: .5s .15s ease;
+                                                    }
+
+                                                    &:hover{
+                                                        i{
+                                                            font-size: 1.7em;
+                                                        }
+                                                    }
+
+                                                }
+
+                                            }
+                                            
                                         }
 
                                     }
