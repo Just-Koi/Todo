@@ -55,13 +55,10 @@
                     <label for="category<%= i %>">
                         <input type="checkbox" name="category<%= i %>" id="category<%= i %>">
                         <a href="cat<%= i %>" class="categoryTitle">
-                            Category name
+                            <%= categories[i].name %>
                         </a>
                         <p class="categoryDescription">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, 
-                            laboriosam quos asperiores, voluptatibus amet natus aliquam facere 
-                            praesentium placeat recusandae quis nam consequuntur eaque repudiandae 
-                            incidunt voluptates illo impedit eos!
+                            <%= categories[i].content %>
                         </p>
                     </label>
                     <% } %>

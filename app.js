@@ -9,6 +9,23 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+//Categories
+let categories = [];
+app.post("/add-category", function(req, res){
+
+    let newCatName = req.body.newCategoryName;
+    let newCatDescription = req.body.newCategoryDescription;
+
+    let categoryItem = {
+        name: newCatName,
+        content: newCatDescription
+    }
+
+    categories.push(categoryItem);
+
+    res.redirect("/");
+});
+
 app.get("/", function (req, res) {
 
     res.sendFile(__dirname + '/views/todo.ejs');
@@ -24,37 +41,15 @@ app.get("/", function (req, res) {
     } else if(timeInPoland > 10 && timeInPoland < 19){
         welcome = "Dzień dobry";
     } else{
-        welcome = "Dobry wieczór"
+        welcome = "Dobry wieczór";
     }
 
-    //Categories
-    let categories = [];
-    app.post("/add-category", function(req, res){
-
-        let newCatName = req.body.newCategoryName;
-        let newCatDescription = req.body.newCategoryDescription;
-
-        let categoryItem = {
-            name: newCatName,
-            content: newCatDescription
-        }
-
-        console.log(categoryItem);
-        categories.push(categoryItem);
-
-        res.redirect("/todo.app");
-    });
-    console.log(categories);
-
-    res.redirect('/todo.app');
 
     // render    
-    app.get("/todo.app", function(req, res){
-        res.render("todo",{
-            categories: categories,
-            welcome: welcome
-        });
-    });
+    res.render("todo",{
+        welcome: welcome,
+        categories: categories
+    })
 
 });
 
