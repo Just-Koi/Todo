@@ -44,16 +44,64 @@
     <main class="container-fluid">
 
         <!-- desktop - start -->
+
+        <!-- left sidebar - start -->
         <sidebar class="left-sidebar">
             <div class="wrapper">
                 <h1>~ Categories:</h1>
                 <ul>
-                    <%
-                    // for loop
-                    %>
+                    
+                    <% for (let i = 0; i < categories.length; i++) { %>
+                    <label for="category<%= i %>">
+                        <input type="checkbox" name="category<%= i %>" id="category<%= i %>">
+                        <a href="cat<%= i %>" class="categoryTitle">
+                            Category name
+                        </a>
+                        <p class="categoryDescription">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, 
+                            laboriosam quos asperiores, voluptatibus amet natus aliquam facere 
+                            praesentium placeat recusandae quis nam consequuntur eaque repudiandae 
+                            incidunt voluptates illo impedit eos!
+                        </p>
+                    </label>
+                    <% } %>
+
                 </ul>
+                <div class="float-button" id="addCategory">
+                    <i class="fas fa-plus"></i>
+                </div> 
+                <div class="float-button" id="deleteCategory">
+                    <i class="fas fa-minus"></i>
+                </div> 
             </div>
         </sidebar>
+
+        <!-- add category - start -->
+        <div id="categoryScreen">
+            <div class="content">
+                <div class="inner">
+                    <div class="header">
+                        <h1>Add category</h1>
+                        <p>~ Keep calm & git push</p>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" name="newCategoryName" id="newCategoryName" placeholder="Type your category name..">
+                        <textarea name="newCategoryDescription" id="newCategoryDescription" cols="30" rows="10"></textarea>
+                    </div>
+                    <button type="submit">
+                        Make your day more productive!
+                    </button>
+                    <h3 class="cancel">
+                        Cancel
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <!-- add category - end -->
+
+        <!-- left sidebar - end -->
+
+        <!-- article - start -->
         <article class="todo">
             <div class="todo-inner">
                 <div class="header">
@@ -139,6 +187,9 @@
                 <i class="fas fa-plus"></i>
             </div>  
         </article>
+        <!-- article - end -->
+
+        <!-- right sidebar - start -->
         <sidebar class="right-sidebar">
             <div class="wrapper">
                 <%
@@ -146,6 +197,8 @@
                 %>
             </div>
         </sidebar>
+        <!-- right sidebar - end -->
+
         <!-- desktop - end -->
 
         <!-- add task - start -->

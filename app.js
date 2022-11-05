@@ -13,6 +13,7 @@ app.get("/", function (req, res) {
 
     res.sendFile(__dirname + '/views/todo.ejs');
 
+    // Welcome
     let getDate = new Date();
     let time = getDate.getUTCHours();
     let timeInPoland = time + 2;
@@ -26,8 +27,27 @@ app.get("/", function (req, res) {
         welcome = "Dobry wieczór"
     }
 
-    
+    //Categories
+    let categories = [];
+
+    for (let i = 0; i < categories.length; i++){
+        var category = req.body.category + i;
+    }
+    categories.push(category);
+
+    /*
+    let categoryItem = {
+        name: doAddCategoryTitle,
+        content: doAddCategoryContentDescription
+    }
+    categories.push(categoryItem);
+    */
+
+    console.log(categories);
+
+    // render    
     res.render("todo",{
+        categories: categories,
         welcome: welcome
     });
 

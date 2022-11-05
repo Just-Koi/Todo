@@ -120,12 +120,46 @@ main sidebar.left-sidebar {
 }
 main sidebar.right-sidebar {
   right: 0;
+  padding: 125px 50px 50px 50px;
 }
 main sidebar .wrapper {
   height: 100%;
   width: 100%;
   position: relative;
-  background: green;
+}
+main sidebar .wrapper .float-button {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(7, 70, 126, 0.5);
+  height: 50px;
+  width: 50px;
+  border-radius: 50% 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.45s ease;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 6px 17.5px 1px;
+  z-index: 999;
+}
+main sidebar .wrapper .float-button i {
+  transition: 0.35s ease;
+  font-size: 1.5rem;
+  color: rgba(217, 231, 230, 0.5);
+}
+main sidebar .wrapper .float-button:hover {
+  background: #07467E;
+}
+main sidebar .wrapper .float-button:hover i {
+  color: #D9E7E6;
+  transform: rotate(90deg);
+}
+main sidebar .wrapper #deleteCategory {
+  right: 100px;
+}
+main sidebar .wrapper #deleteCategory:hover i {
+  transform: rotate(180deg);
 }
 main .todo {
   height: 100%;
@@ -418,7 +452,7 @@ main .todo .todo-inner .content .category:nth-child(1) {
   margin: 10rem 0 5rem 0;
 }
 main .todo .todo-inner::-webkit-scrollbar {
-  background: rgba(7, 70, 126, 0.25);
+  background: rgba(7, 70, 126, 0);
 }
 main .todo .todo-inner::-webkit-scrollbar-thumb {
   background: rgba(7, 70, 126, 0.75);
@@ -500,6 +534,105 @@ main #taskScreen .content .inner button:hover {
   color: #D9E7E6;
   background: #07467E;
 }
+main #categoryScreen {
+  transform: scale(1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(3, 33, 58, 0.25);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  z-index: 1;
+  transition: all 0.65s ease;
+}
+main #categoryScreen .content {
+  position: relative;
+  height: calc(100% - 50px);
+  width: 50%;
+  padding: 25px;
+  top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+main #categoryScreen .content .inner {
+  display: block;
+  width: 100%;
+}
+main #categoryScreen .content .inner .header {
+  margin: 2.5rem 0;
+}
+main #categoryScreen .content .inner .header h1 {
+  line-height: 0;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.5em, 10vw, 5em);
+}
+main #categoryScreen .content .inner .input-group {
+  margin: 2.5rem 0;
+}
+main #categoryScreen .content .inner .input-group input {
+  border: none;
+  background: none;
+  border-radius: none;
+  border-bottom: 2px solid rgba(7, 70, 126, 0.25);
+  width: 100%;
+  padding: 12px 10px;
+  color: #D9E7E6;
+  font-family: "Roboto Mono", monospace;
+  font-family: 200;
+  letter-spacing: 0.5px;
+  position: relative;
+  transition: 0.65s ease;
+}
+main #categoryScreen .content .inner .input-group input:focus, main #categoryScreen .content .inner .input-group input:hover {
+  outline: none;
+  border-bottom: 2px solid #07467E;
+}
+main #categoryScreen .content .inner .input-group textarea {
+  margin: 2rem 0 1rem 0;
+  padding: 10px;
+  font-size: 1.1em;
+  width: 100%;
+  background: rgba(217, 231, 230, 0.25);
+  border: 2px solid rgba(7, 70, 126, 0.05);
+  border-radius: 5px;
+  color: #D9E7E6;
+  resize: none;
+}
+main #categoryScreen .content .inner .input-group textarea:focus, main #categoryScreen .content .inner .input-group textarea:active {
+  outline: none;
+  border-bottom: 2px solid #07467E;
+}
+main #categoryScreen .content .inner button {
+  border: 2px solid #07467E;
+  padding: 16px 32px;
+  border-radius: 0.25rem;
+  background: rgba(7, 70, 126, 0.5);
+  color: rgba(217, 231, 230, 0.5);
+  font-family: "Playfair Display", serif;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.55s ease;
+}
+main #categoryScreen .content .inner button:hover {
+  transform: translateY(-2px) translateZ(-20px);
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  color: #D9E7E6;
+  background: #07467E;
+}
+main #categoryScreen .content .inner .cancel {
+  font-size: 1.2em;
+  margin: 1rem 0;
+  color: #07467E;
+  text-decoration: underline;
+  cursor: pointer;
+}
 
 footer {
   background: #03213A;
@@ -516,7 +649,7 @@ footer .container {
 footer .container .row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 footer .container .row .col {
   margin: 0 3.3%;
