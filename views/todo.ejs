@@ -53,7 +53,7 @@
                     
                     <% for (let i = 0; i < categories.length; i++) { %>
                     <label for="category<%= i %>">
-                        <input type="checkbox" name="category<%= i %>" id="category<%= i %>">
+                        <input type="checkbox" name="category<%= i %>" id="category<%= i %>" required>
                         <a href="cat<%= i %>" class="categoryTitle">
                             <%= categories[i].name %>
                         </a>
@@ -108,25 +108,25 @@
                     <h1><%= welcome %></h1>
                 </div>
                 <ul class="content">
-                    <%
-                    // todo
-                    %>
 
-                    <li class="category" id="categoryName">
+                    <% for (var i = 0; i < categories.length; i++){ %>
+                    <li class="category" id="cat<%= i %>">
 
                         <div class="header">
                             <div class="title">
-                                <h3>Category name:</h3>
+                                <h3><%= categories[i].name %></h3>
                             </div>
                             <div class="buttons">
                                 <button class="check-all" id="checkAll"><div class="icon-wrapper"><i class="fas fa-check-double"></i></div> Check all</button>
                                 <button class="delete-all" id="deleteAll"><div class="icon-wrapper"><i class="fas fa-bars-staggered"></i></div> Delete all</button>
                             </div>
                         </div>
+                    <% } %>
                         
                         <div class="wrapper">
 
-                            <div class="task" id="taskCategoryName">
+                            <% for (var i = 0; i < tasks.length; i++){ %>
+                            <div class="task" id="task<%= i %>Category<%= i %>">
                                 <div class="row">
                                     <div class="col">
                                         <div class="icon-wrapper">
@@ -136,10 +136,10 @@
                                     <div class="col">
                                         <div class="text-wrapper">
                                             <h4 id="taskTitleCategoryName">
-                                                Example
+                                                <%= tasks[i].name %>
                                             </h4>
                                             <p id="taskTitleDescriptionCategoryName">
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, doloribus eligendi recusandae ea quam accusamus similique vitae maiores neque. Nam, aut. Itaque voluptas, iste quaerat harum aliquam perferendis consequatur commodi.
+                                                <%= tasks[i].content %>
                                             </p>
                                         </div>
                                     </div>
@@ -175,6 +175,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <% } %>
                             
                         </div>
 
@@ -182,7 +183,7 @@
 
                 </div>
             </div>
-            <div class="float-button">
+            <div class="float-button" id="addTaskButton">
                 <i class="fas fa-plus"></i>
             </div>  
         </article>
@@ -208,12 +209,26 @@
                         <h1>Add task</h1>
                         <p>~ Keep calm & git push</p>
                     </div>
-                    <div class="input-group">
-                        <input type="text" name="task" id="task" placeholder="Type your next TODO thing ...">
-                    </div>
-                    <button type="submit">
-                        Make your day more productivity!
-                    </button>
+                    <form action="/add-task" method="POST">
+                        <div class="input-group">
+                            <label class="taskCategoryLabel" for="taskCategory">Choose a category for your task:</label>
+                            <div class="select">
+                            <select class="slct" name="taskCategory" id="taskCategory" required>
+                            <% for (var i = 0; i < categories.length; i++) { %>
+                                <option value="<%= categories[i].name %>"><%= categories[i].name %></option>
+                            <%}%>
+                            </select>
+                            </div>
+                            <input type="text" name="newTaskName" id="newTaskName" placeholder="Type your next TODO thing ..." required>
+                            <textarea placeholder="TODO thing description (optional).." name="newTaskDescription" id="newTaskDescription" cols="30" rows="10"></textarea>
+                        </div>
+                        <button type="submit">
+                            Make your day more productive!
+                        </button>
+                    </form>
+                    <h3 class="cancel" id="closeTaskScreen">
+                        Cancel
+                    </h3>
                 </div>
             </div>
         </div>

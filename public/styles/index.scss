@@ -624,7 +624,73 @@ main{
                 .input-group{
                     margin: 2.5rem 0;
 
+
+                    .taskCategoryLabel {
+                        font-size: 1.5em;
+                    }
+
+                    .select {
+                        position: relative;
+                        display: flex;
+                        width: 250px;
+                        height: 50px;
+                        line-height: 3;
+                        backdrop-filter: blur(10px);
+                        background: rgba($color: $lighter, $alpha: 0.25);
+                        border: 2px solid $lighter;
+                        overflow: hidden;
+                        border-radius: .25em;
+                        font-family: $mono;
+                        font-weight: 400;
+                        letter-spacing: 1.5px;
+                        font-size: 1.1em;
+                        margin: 1rem 1rem 0 0;
+
+                        select{
+                            flex: 1;
+                            padding: 0 .5em;
+                            color: $textColor;
+                            background: rgba($color: $lighter, $alpha: 0.25);
+                            cursor: pointer;
+                            border: none;
+
+                            &::-ms-expand{
+                                display: none;
+                            }
+                            
+                            option{
+                                background: rgba($color: $lighter, $alpha: 0.5);
+                                color: #011827;
+                            }
+
+                        }
+
+                        /* Arrow */
+                        &::after {
+                            content: '\25BC';
+                            position: absolute;
+                            height: 100%;
+                            top: 0;
+                            right: 0;
+                            padding: 0 1em;
+                            background: $bgAlt;
+                            cursor: pointer;
+                            pointer-events: none;
+                            -webkit-transition: .25s all ease;
+                            -o-transition: .25s all ease;
+                            transition: .25s all ease;
+                        }
+
+                        /* Transition */
+                        &:hover::after {
+                            color: $lighter;
+                        }
+
+                    }
+                    // THANKS TO "GEEKS FOR GEEKS" 
+
                     input{
+                        margin-top: 2rem;
                         border: none;
                         background: none;
                         border-radius: none;
@@ -644,6 +710,25 @@ main{
                             border-bottom: 2px solid $lighter;
                         }
 
+                    }
+
+                    textarea{
+                        margin: 2rem 0 1rem 0;
+                        padding: 10px;
+                        font-size: 1.1em;
+                        width: 100%;
+                        background: rgba($color: $textColor, $alpha: 0.15);
+                        border: 2px solid rgba($color: $lighter, $alpha: 0.05);
+                        border-radius: 5px;
+                        color: $textColor;
+                        resize: none;
+
+                        &:focus,
+                        &:active{
+                            outline: none;
+                            border-bottom: 2px solid $lighter;
+                        }
+                        
                     }
 
                 }
@@ -669,6 +754,20 @@ main{
                         background: $lighter;
                     }
 
+                }
+
+                .cancel{
+                    font-size: 1.2em;
+                    margin: 1rem 0;
+                    color: $lighter;
+                    text-decoration: underline;
+                    cursor: pointer;
+                    transition: .25s ease;
+
+                    &:hover{
+                        color: rgba($color: $lighter, $alpha: 0.5);
+                    }
+                    
                 }
 
             }

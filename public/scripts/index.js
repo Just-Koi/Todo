@@ -19,5 +19,16 @@ $(document).ready(function(){
     });
 
     // open and close add new task screen
+    let taskScreen = $('#taskScreen');
+    let addTaskButton = $('#addTaskButton');
+    let closeTaskScreen = $('#closeTaskScreen');
+
+    addTaskButton.click(() => {
+        taskScreen.css('transform', 'scale(1)');
+    });
+
+    closeTaskScreen.click(() => {
+        taskScreen.css('transform', 'scale(0)');
+    });
 
 });

@@ -2,6 +2,7 @@
 const express = require('express');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
+const { response } = require('express');
 
 const app = express();
 
@@ -21,9 +22,40 @@ app.post("/add-category", function(req, res){
         content: newCatDescription
     }
 
-    categories.push(categoryItem);
+    if(categoryItem.name === ''){
+        res.send('Please enter a name for your category');
+    } else if(categoryItem.name === undefined){
+        res.send('Please enter a valid name for your category');
+    } else{
+        categories.push(categoryItem);
+        res.redirect("/");
+    }
 
-    res.redirect("/");
+});
+
+//Tasks
+let tasks = [];
+app.post("/add-task", function(req, res){
+
+    let newTaskName = req.body.newTaskName;
+    let newTaskContent = req.body.newTaskDescription;
+    let newTaskCategory = req.body.taskCategory;
+
+    let taskItem = {
+        name: newTaskName,
+        content: newTaskContent,
+        category: newTaskCategory
+    }
+
+    if(taskItem.name === ''){
+        res.send('Please enter a name for your task');
+    } else if(taskItem.name === undefined){
+        res.send('Please enter a valid name for your task');
+    } else{
+        tasks.push(taskItem);
+        res.redirect("/");
+    }
+
 });
 
 app.get("/", function (req, res) {
@@ -48,7 +80,8 @@ app.get("/", function (req, res) {
     // render    
     res.render("todo",{
         welcome: welcome,
-        categories: categories
+        categories: categories,
+        tasks: tasks
     })
 
 });
