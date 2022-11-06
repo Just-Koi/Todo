@@ -27,6 +27,7 @@ app.post("/add-category", function(req, res){
     } else if(categoryItem.name === undefined){
         res.send('Please enter a valid name for your category');
     } else{
+        console.log(categories);
         categories.push(categoryItem);
         res.redirect("/");
     }
@@ -41,6 +42,8 @@ app.post("/add-task", function(req, res){
     let newTaskContent = req.body.newTaskDescription;
     let newTaskCategory = req.body.taskCategory;
 
+    console.log(newTaskCategory);
+
     let taskItem = {
         name: newTaskName,
         content: newTaskContent,
@@ -51,8 +54,11 @@ app.post("/add-task", function(req, res){
         res.send('Please enter a name for your task');
     } else if(taskItem.name === undefined){
         res.send('Please enter a valid name for your task');
-    } else{
+    } else if(taskItem.category === '' || taskItem.category === undefined){
+        res.send('Please select a valid category for your task');
+    }else{
         tasks.push(taskItem);
+        console.log(taskItem);
         res.redirect("/");
     }
 
