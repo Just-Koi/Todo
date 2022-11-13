@@ -22,17 +22,20 @@ app.post("/add-category", function(req, res){
         content: newCatDescription
     }
 
+    console.log(categoryItem);
+
     if(categoryItem.name === ''){
         res.send('Please enter a name for your category');
     } else if(categoryItem.name === undefined){
         res.send('Please enter a valid name for your category');
     } else{
-        console.log(categories);
         categories.push(categoryItem);
         res.redirect("/");
     }
 
 });
+
+// Validate category
 
 //Tasks
 let tasks = [];
@@ -42,13 +45,14 @@ app.post("/add-task", function(req, res){
     let newTaskContent = req.body.newTaskDescription;
     let newTaskCategory = req.body.taskCategory;
 
-    console.log(newTaskCategory);
-
     let taskItem = {
         name: newTaskName,
         content: newTaskContent,
         category: newTaskCategory
     }
+
+    //validate category of task
+    console.log(taskItem);
 
     if(taskItem.name === ''){
         res.send('Please enter a name for your task');
@@ -58,8 +62,41 @@ app.post("/add-task", function(req, res){
         res.send('Please select a valid category for your task');
     }else{
         tasks.push(taskItem);
-        console.log(taskItem);
+        res.redirect("/validating-task");
+    }
+
+});
+
+// Validate Task
+let validatedTasks = [];
+app.get('/validating-task', function(req, res){
+
+    let taskCategory = tasks[tasks.length - 1].category;
+    let categoryName = categories[categories.length - 1].name;
+    let searchForCategoryName;
+
+    console.log(taskCategory, categoryName);
+
+    let validatedTask = {
+        name: taskCategory,
+        category: categoryName
+    }
+
+    console.log(validatedTask, validatedTasks);
+
+    if (taskCategory === categoryName){
+        validatedTasks.push(validatedTask);
         res.redirect("/");
+    } else {
+        let i = 0;
+        while(i < categories.length){
+            searchForCategoryName = categories[categories.length - i].name;
+            i--;
+
+            if(searchForCategoryName === taskCategory){
+                console.log('Founded! ' + taskCategory + ' is equal to ' + searchForCategoryName);
+            }
+        }
     }
 
 });
@@ -87,7 +124,7 @@ app.get("/", function (req, res) {
     res.render("todo",{
         welcome: welcome,
         categories: categories,
-        tasks: tasks
+        tasks: validatedTasks
     })
 
 });
